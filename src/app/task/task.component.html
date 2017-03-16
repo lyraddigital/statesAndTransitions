@@ -1,0 +1,11 @@
+<article [@taskStatus]="taskStatus" 
+         (mouseover)="toggleStatus(true)"
+         (mouseout)="toggleStatus(false)"
+         (click)="toggleChosen()">
+  <header>
+    <h1>{{task.name}}</h1>
+  </header>
+  <p>
+    {{task.description}}
+  </p>
+</article>
