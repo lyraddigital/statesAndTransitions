@@ -1,5 +1,10 @@
 <h1>Task List Animation</h1>
 
 <section>
-  <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+  <app-task *ngFor="let task of tasks" [showTask]="showTasks" [task]="task"></app-task>
 </section>
+
+<div id="taskButtons">
+  <button *ngIf="showTasks" (click)="toggleShow(false)">Hide Tasks</button>
+  <button *ngIf="!showTasks" (click)="toggleShow(true)">Show Tasks</button>
+</div>

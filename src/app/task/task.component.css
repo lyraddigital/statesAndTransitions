@@ -5,6 +5,8 @@ article {
     text-align: center;
     margin-left: 30px;
     border-radius: 5px;
+    background: #127;
+    color: #BBB;
     box-shadow: 0 2px 2px rgba(0,0,0,0.24), 0 0 2px rgba(0,0,0,0.12)
 }
 

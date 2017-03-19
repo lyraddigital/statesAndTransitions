@@ -1,7 +1,8 @@
 <article [@taskStatus]="taskStatus" 
          (mouseover)="toggleStatus(true)"
          (mouseout)="toggleStatus(false)"
-         (click)="toggleChosen()">
+         (click)="toggleChosen()"
+         *ngIf="showTask">
   <header>
     <h1>{{task.name}}</h1>
   </header>

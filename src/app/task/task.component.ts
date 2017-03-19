@@ -1,4 +1,4 @@
-import { Component, Input, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, Input, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 
 import { Task } from './task';
 
@@ -29,14 +29,19 @@ import { Task } from './task';
           border: '3px solid #060'
         }
       )),
-      transition('highlighted => unhighlighted', animate('150ms ease-in')),
-      transition('unhighlighted => highlighted', animate('150ms ease-out'))
+      transition('highlighted <=> unhighlighted', animate(150)),
+      transition(':enter', [
+        style({ transform: 'scale(0.5)'}),
+        animate('500ms cubic-bezier(.6, -0.24, .51, 1.13)')
+      ]),
+      transition(':leave', animate('500ms cubic-bezier(.6, -0.24, .51, 1.13)', style({ transform: 'scale(0.5)'})))
     ])
   ]
 })
 export class TaskComponent {
   @Input() task: Task;
-  taskStatus = 'unhighlighted';
+  @Input() showTask = true;
+  taskStatus = '';
   isChosen = false;
 
   toggleStatus(isMouseOver: boolean) 
